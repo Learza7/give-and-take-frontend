@@ -7,7 +7,7 @@ interface Account {
   points: number;
 }
 
-// Remplacez ceci par une requête API pour récupérer les informations du compte réel
+// TODO remplacer par les données du compte de l'utilisateur venant du back
 const mockAccount: Account = {
   name: 'James Bond',
   email: 'james.bond@gmail.com',
@@ -37,7 +37,7 @@ const AccountPage: React.FC = () => {
     event.preventDefault();
     setAccount(updatedAccount);
     setEditing(false);
-    // Ajoutez le code pour envoyer les données du formulaire et mettre à jour les informations du compte
+    // TODO envoyer les données du formulaire au back pour mettre à jour le compte
   };
 
   return (

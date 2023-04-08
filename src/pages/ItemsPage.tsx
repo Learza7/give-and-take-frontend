@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import mockItems from './mockItems';
 
 const ItemsPage: React.FC = () => {
-    // Remplacez ceci par une requête API pour récupérer les articles réels
+    //TODO : récupérer les items depuis l'API
 
 
 

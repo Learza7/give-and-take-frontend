@@ -4,7 +4,8 @@ import './PublishItemPage.css';
 const PublishItemPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Ajoutez le code pour envoyer les données du formulaire et créer un nouvel article
+    // TODO : récupérer les données du formulaire
+    // TODO : envoyer les données au back pour créer l'article
   };
 
   return (
