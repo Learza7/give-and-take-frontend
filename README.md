@@ -24,4 +24,11 @@ Give&Take est une plateforme en ligne pour les utilisateurs qui souhaitent écha
 2. Dans le répertoire racine du projet, exécutez `npm install` pour installer les dépendances.
 3. Exécutez `npm run dev` pour lancer l'application. Cela ouvrira l'application dans votre navigateur par défaut.
 
+## Suivi
+
+- Séance 1:
+  - Définition du thème du site.
+  - Spécification des features.
+- Séance 2 : 
+ 
 
