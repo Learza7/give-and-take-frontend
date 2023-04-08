@@ -1,0 +1,26 @@
+.publish-item-page {
+    padding: 2rem;
+  }
+  
+  .publish-item-page__title {
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  
+  .publish-item-page__form {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  
+  .publish-item-page__form label {
+    display: block;
+  }
+  
+  .publish-item-page__form input,
+  .publish-item-page__form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+  

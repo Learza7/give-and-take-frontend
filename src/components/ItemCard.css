@@ -1,0 +1,43 @@
+.item-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .item-card__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .item-card__content {
+    padding: 1rem;
+  }
+  
+  .item-card__title {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .item-card__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  
+  .item-card__points {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .item-card {
+    text-decoration: none;
+    color: inherit;
+  }

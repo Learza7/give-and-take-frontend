@@ -1,0 +1,21 @@
+.items-page {
+    padding: 2rem;
+  }
+  
+  .items-page__title {
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  
+  .items-page__search {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .items-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+  }

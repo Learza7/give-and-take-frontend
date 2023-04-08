@@ -1,0 +1,13 @@
+.home-page {
+    padding: 2rem;
+  }
+  
+  .home-page__title {
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  
+  .home-page__description {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }

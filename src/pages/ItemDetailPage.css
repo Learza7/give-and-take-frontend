@@ -1,0 +1,38 @@
+.item-detail-page {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .item-detail-page__image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .item-detail-page__info {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .item-detail-page__info h2 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .item-detail-page__info p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .item-detail-page__info button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
