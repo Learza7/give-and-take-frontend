@@ -30,6 +30,7 @@ Give&Take est une plateforme en ligne pour les utilisateurs qui souhaitent écha
 - Séance 1:
   - Définition du thème du site.
   - Spécification des features.
-- Séance 2 : 
+- Séance 2: 
+  - Début du frontend : prototypage et maquette (~700 LOC)
  
 
