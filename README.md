@@ -6,9 +6,10 @@ Give&Take est une plateforme en ligne pour les utilisateurs qui souhaitent écha
 
 - Création et connexion de compte utilisateur
 - Publication d'articles à échanger
-- Recherche d'articles disponibles par titre, description ou mot-clé
+- Recherche d'articles disponibles par titre, description, région ou mot-clé
 - Système de points pour maintenir l'équilibre entre les articles donnés et les articles récupérés
 - Chat intégré pour organiser les détails de l'échange
+
 
 ## Technologies utilisées
 
