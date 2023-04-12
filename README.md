@@ -13,11 +13,11 @@ Give&Take est une plateforme en ligne pour les utilisateurs qui souhaitent écha
 
 ## Technologies utilisées
 
-- React pour le front-end
-- TypeScript pour la programmation en statique
+- React Typescript pour le frontend
 - React Router pour la navigation
 - REST API pour l'intégration
 - CSS pour la mise en page
+- JEE pour le backend
 
 ## Installation
 
