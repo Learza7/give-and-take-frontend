@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
-import './AccountPage.css';
+import React, { useContext, useState } from 'react';
+import {AuthContext} from '../AuthContext';
 
-interface Account {
-  name: string;
+interface User {
+  id: number;
   email: string;
-  points: number;
+  firstName: string;
+  lastName: string;
 }
 
-// TODO remplacer par les données du compte de l'utilisateur venant du back
-const mockAccount: Account = {
-  name: 'James Bond',
-  email: 'james.bond@gmail.com',
-  points: 150
-};
-
 const AccountPage: React.FC = () => {
-  const [account, setAccount] = useState<Account>(mockAccount);
+  const { user } = useContext(AuthContext);
   const [editing, setEditing] = useState<boolean>(false);
-  const [updatedAccount, setUpdatedAccount] = useState<Account>(account);
+  const [updatedUser, setUpdatedUser] = useState<User>({ id: user?.id || 0, email: user?.email || '', firstName: user?.firstName || '', lastName: user?.lastName || '' });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setUpdatedAccount({ ...updatedAccount, [name]: value });
+    setUpdatedUser({ ...updatedUser, [name]: value });
   };
 
   const handleEdit = () => {
@@ -30,38 +24,36 @@ const AccountPage: React.FC = () => {
 
   const handleCancel = () => {
     setEditing(false);
-    setUpdatedAccount(account);
+    setUpdatedUser({ id: user?.id || 0, email: user?.email || '', firstName: user?.firstName || '', lastName: user?.lastName || '' });
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    setAccount(updatedAccount);
+    // TODO: Envoyer les données mises à jour au backend pour mettre à jour le profil de l'utilisateur
+    // Puis, mettre à jour les informations de session dans le contexte d'authentification si nécessaire
     setEditing(false);
-    // TODO envoyer les données du formulaire au back pour mettre à jour le compte
   };
+  console.log(user)
 
   return (
     <div className="account-page">
       <h2 className="account-page__title">Votre compte</h2>
       {editing ? (
         <form className="account-page__form" onSubmit={handleSubmit}>
-          <label htmlFor="name">Nom:</label>
-          <input type="text" id="name" name="name" value={updatedAccount.name} onChange={handleInputChange} required />
+          <label htmlFor="firstName">Prénom:</label>
+          <input type="text" id="firstName" name="firstName" value={updatedUser.firstName} onChange={handleInputChange} required />
 
-          <label htmlFor="email">E-mail:</label>
-          <input type="email" id="email" name="email" value={updatedAccount.email} onChange={handleInputChange} required />
+          <label htmlFor="lastName">Nom de famille:</label>
+          <input type="text" id="lastName" name="lastName" value={updatedUser.lastName} onChange={handleInputChange} required />
 
-          <div>
-            <button type="submit">Enregistrer</button>
-            <button type="button" onClick={handleCancel}>Annuler</button>
-          </div>
+          <button type="submit">Enregistrer</button>
+          <button type="button" onClick={handleCancel}>Annuler</button>
         </form>
       ) : (
         <div className="account-page__info">
-          <p><strong>Nom:</strong> {account.name}</p>
-          <p><strong>E-mail:</strong> {account.email}</p>
-          <p><strong>Points:</strong> {account.points}</p>
-          <button onClick={handleEdit}>Modifier</button>
+          <p><strong>Prénom:</strong> {user?.firstName}</p>
+          <p><strong>Nom de famille:</strong> {user?.lastName}</p>
+          <button type="button" onClick={handleEdit}>Modifier</button>
         </div>
       )}
     </div>
@@ -69,4 +61,3 @@ const AccountPage: React.FC = () => {
 };
 
 export default AccountPage;
-

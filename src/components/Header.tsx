@@ -31,7 +31,10 @@ const Header: React.FC = () => {
         </ul>
       </nav>
       <div className="header__auth">
-        <button className="header__auth-btn">S'inscrire</button>
+        <button className="header__auth-btn">
+          <NavLink to="/account/create" activeClassName="header__nav-link--active" className="header__nav-link">
+            S'inscrire
+          </NavLink></button>
         <button className="header__auth-btn">Se connecter</button>
       </div>
     </header>
