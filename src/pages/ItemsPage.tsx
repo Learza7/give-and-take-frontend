@@ -11,13 +11,17 @@ interface Article {
     id: number;
     title: string;
     description: string;
+    imageUrl: string;
+    points: number;
     region: string;
 }
 
 const ItemsPage: React.FC = () => {
     //TODO : récupérer les items depuis l'API
-
-
+    
+    const [data, SetData] = useState<Article[] | null>(null);
+    const [filteredItemsUsers, SetFilteredItemsUsers] = useState<Article[] | null>(null); 
+    
 
     const [searchValue, setSearchValue] = useState('');
 
@@ -33,8 +37,8 @@ const ItemsPage: React.FC = () => {
             const response = await axios.get('http://localhost:8080/hello/api/articles', {
               // Request payload
             });
-    
-            // Handle the response as needed
+
+            SetData(response.data);          
             console.log(response.data);
             console.log("ok");
 
@@ -51,10 +55,18 @@ const ItemsPage: React.FC = () => {
         fetchData(); 
       }, []);
 
-      const filteredItems = mockItems.filter(item =>
+    const filteredItems = mockItems.filter(item =>
         item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
         item.description.toLowerCase().includes(searchValue.toLowerCase())
     );
+
+    if (data !== null) {
+        SetFilteredItemsUsers(data.filter(item =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+            item.description.toLowerCase().includes(searchValue.toLowerCase())
+        ));
+    }
+   
 
     
 
@@ -72,6 +84,11 @@ const ItemsPage: React.FC = () => {
 
             <div className="items-page__grid">
                 {filteredItems.map(item => (
+                    <Link key={item.id} to={`/item/${item.id}`}>
+                        <ItemCard item={item} />
+                    </Link>
+                ))}
+                {filteredItemsUsers && filteredItemsUsers.map(item => (
                     <Link key={item.id} to={`/item/${item.id}`}>
                         <ItemCard item={item} />
                     </Link>
