@@ -15,8 +15,7 @@ interface Article {
 
 const PublishItemPage: React.FC = () => {
 
-  const { authStatus } = useContext(AuthContext);
-  const { user_id } = useContext(AuthContext);
+  const { authStatus, user_id } = useContext(AuthContext);
 
 
   if (!authStatus) {
