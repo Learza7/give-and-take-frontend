@@ -10,6 +10,7 @@ import AccountPage from './pages/AccountPage';
 import ChatPage from './pages/ChatPage';
 import AccountCreatePage from './pages/AccountCreatePage';
 import { AuthProvider } from './AuthContext';
+import LoginPage from './pages/LoginPage';
 
 
 
@@ -27,6 +28,7 @@ const App: React.FC = () => {
           <Route path="/account" element={<AccountPage />} />
           <Route path="/account/create" element={<AccountCreatePage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/login" element={<LoginPage/>} />
           
           <Route path="*" element={<h1>Page non trouvée</h1>} />
         </Routes>

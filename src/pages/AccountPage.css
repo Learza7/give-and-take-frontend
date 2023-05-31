@@ -1,33 +1,42 @@
-.account-page {
-    padding: 2rem;
-  }
-  
-  .account-page__title {
-    margin-top: 0;
-    font-size: 2rem;
-  }
-  
-  .account-page__form,
-  .account-page__info {
-    display: grid;
-    grid-gap: 1rem;
-  }
-  
-  .account-page__form label,
-  .account-page__info p {
-    display: block;
-  }
-  
-  .account-page__form input {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
-  }
-  
-  .account-page__form div {
+.account-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .account-form {
+    width: 300px;
+    padding: 2rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-color: white;
+    transform: translateY(-0%);
+  }
+  
+  .account-form__title {
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .account-info {
+    display: grid;
     gap: 1rem;
   }
   
+  .account-label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .account-label input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f8f9fa;
+  }

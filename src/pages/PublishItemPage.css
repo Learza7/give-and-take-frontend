@@ -1,26 +1,51 @@
-.publish-item-page {
-    padding: 2rem;
-  }
-  
-  .publish-item-page__title {
-    margin-top: 0;
-    font-size: 2rem;
-  }
-  
-  .publish-item-page__form {
-    display: grid;
-    grid-gap: 1rem;
-  }
-  
-  .publish-item-page__form label {
-    display: block;
-  }
-  
-  .publish-item-page__form input,
-  .publish-item-page__form textarea {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
-  }
-  
+.publish-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.publish-form {
+  width: 500px;
+  padding: 2rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: white;
+  transform: translateY(-10%);
+}
+
+.publish-form__title {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.publish-label {
+  padding-top: 10px;
+  display: grid;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+.publish-label input, .publish-label textarea {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.publish-submit {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.publish-submit:hover {
+  background-color: #0056b3;
+}

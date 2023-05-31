@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {AuthContext} from '../AuthContext';
-import { redirect } from 'react-router-dom';
+import './AccountCreatePage.css';
 
 interface User {
   firstName: string;
@@ -11,8 +11,6 @@ interface User {
 
 const AccountCreatePage: React.FC = () => {
   const { signup } = useContext(AuthContext);
-  const { login } = useContext(AuthContext);
-  
 
   const [user, setUser] = useState<User>({
     firstName: '',
@@ -26,17 +24,10 @@ const AccountCreatePage: React.FC = () => {
     console.log(user);
     try {
       await signup(user);
-      // Handle successful signup, e.g. by navigating to a different page, showing a success message, etc.
-      console.log('login successful');
-      setTimeout(() => {
-        
-        //window.location.href = '/account';
-        }, 1000);
-      //console.log(user2)
       //window.location.href = '/account';
+      console.log('Account creation successful');
     } catch (error) {
       console.error(error);
-      // Handle unsuccessful signup, e.g. by showing an error message
     }
   };
 
@@ -46,51 +37,33 @@ const AccountCreatePage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Create Account</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={user.firstName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={user.lastName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Create Account</button>
-      </form>
+    <div className="create-account-container">
+      <div className="create-account-form">
+        <h2 className="create-account-form__title">Créer un compte</h2>
+        <form onSubmit={handleSubmit}>
+          <label className="create-account-label">
+            <span>Prénom :</span>
+            <input type="text" name="firstName" value={user.firstName} onChange={handleChange} required />
+          </label>
+
+          <label className="create-account-label">
+            <span>Nom :</span>
+            <input type="text" name="lastName" value={user.lastName} onChange={handleChange} required />
+          </label>
+
+          <label className="create-account-label">
+            <span>Email :</span>
+            <input type="email" name="email" value={user.email} onChange={handleChange} required />
+          </label>
+
+          <label className="create-account-label">
+            <span>Mot de passe :</span>
+            <input type="password" name="password" value={user.password} onChange={handleChange} required />
+          </label>
+
+          <button type="submit" className="create-account-submit">Créer un compte</button>
+        </form>
+      </div>
     </div>
   );
 };

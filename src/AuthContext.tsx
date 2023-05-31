@@ -59,6 +59,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
       setUserId(null);
       setAuthStatus(false);
+      window.location.href= '/';
+      
     } catch (error) {
       console.error(error);
     }
