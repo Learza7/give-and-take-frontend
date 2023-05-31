@@ -16,6 +16,7 @@
   
   .item-card__content {
     padding: 1rem;
+    text-decoration: none;
   }
   
   .item-card__title {
