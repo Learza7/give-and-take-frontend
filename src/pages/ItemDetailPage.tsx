@@ -10,6 +10,10 @@ interface Item {
   description: string;
   imageUrl: string;
   points: number;
+  user:{
+    first_name: string;
+    last_name: string;
+  }
 }
 
 const ItemDetailPage: React.FC = () => {
@@ -41,6 +45,7 @@ const ItemDetailPage: React.FC = () => {
         <h2>{item.title}</h2>
         <p>{item.description}</p>
         <p>Points requis: {item.points}</p>
+        <p> Vendeur: {item.user.first_name} {item.user.last_name}</p>
         <button>Demander cet article</button>
       </div>
     </div>
