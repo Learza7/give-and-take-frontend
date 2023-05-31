@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useState } from 'react';
 import './ItemsPage.css';
 import ItemCard from '../components/ItemCard';
@@ -20,7 +20,6 @@ const ItemsPage: React.FC = () => {
     //TODO : récupérer les items depuis l'API
     
     const [data, SetData] = useState<Article[] | null>(null);
-    const [filteredItemsUsers, SetFilteredItemsUsers] = useState<Article[] | null>(null); 
     
 
     const [searchValue, setSearchValue] = useState('');
@@ -60,12 +59,15 @@ const ItemsPage: React.FC = () => {
         item.description.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    if (data !== null) {
-        SetFilteredItemsUsers(data.filter(item =>
-            item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-            item.description.toLowerCase().includes(searchValue.toLowerCase())
-        ));
-    }
+    const filteredItemsUsers = useMemo(() => {
+        if (data !== null) {
+            return data.filter(item =>
+                item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+                item.description.toLowerCase().includes(searchValue.toLowerCase())
+            );
+        }
+        return [];
+    }, [data, searchValue]);
    
 
     
