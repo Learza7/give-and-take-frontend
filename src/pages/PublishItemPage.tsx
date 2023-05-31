@@ -1,10 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './PublishItemPage.css';
 import { AuthContext } from '../AuthContext';
+import axios from 'axios';
+
+
+
+interface Article {
+  title : string;
+  description : string;
+  region : string;
+  imageUrl : string;
+  points : number;
+}
 
 const PublishItemPage: React.FC = () => {
 
   const { authStatus } = useContext(AuthContext);
+  const { user_id } = useContext(AuthContext);
+
 
   if (!authStatus) {
     return (
@@ -15,14 +28,51 @@ const PublishItemPage: React.FC = () => {
         </div>
       </div>
     );
-  }
+  }  
+
+  const [article, setArticle] = useState<Article>({
+    title: '',
+    description: '',
+    region: '',
+    imageUrl: '',
+    points: 0,
+  });
   
 
+  const publish = async (article: { title: string; description: string; region: string; imageUrl: string; points: number; }) => {
+    try {
+      const response = await axios.post('http://localhost:8080/hello/api/articles', {
+        title: article.title,
+        description: article.description,
+        region: article.region,
+        //imageUrl: article.imageUrl,
+        points: article.points,
+        user: user_id,
+      });
+      console.log(response.data);
 
-  const handleSubmit = (event: React.FormEvent) => {
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     // TODO : récupérer les données du formulaire
     // TODO : envoyer les données au back pour créer l'article
+    try {
+      await publish(article);
+      //window.location.href = '/account';
+      console.log('Article publication successful');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setArticle((prevArticle) => ({ ...prevArticle, [name]: value }));
   };
 
   return (
@@ -32,22 +82,22 @@ const PublishItemPage: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <label className="publish-label">
             <span>Titre:</span> 
-            <input type="text" name="title" required />
+            <input type="text" name="title" value={article.title} onChange={handleChange} required />
           </label>
 
           <label className="publish-label">
             <span>Description:</span> 
-            <textarea name="description" required></textarea>
+            <textarea name="description" value={article.description} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setArticle((prevValues) => ({ ...prevValues, description: e.target.value }))} required></textarea>
           </label>
 
           <label className="publish-label">
             <span>URL de l'image:</span> 
-            <input type="text" name="imageUrl" required />
+            <input type="text" name="imageUrl" value={article.imageUrl} onChange={handleChange} required />
           </label>
 
           <label className="publish-label">
             <span>Points:</span> 
-            <input type="number" name="points" required />
+            <input type="number" name="points" value={article.points} onChange={handleChange} required />
           </label>
 
           <button type="submit" className="publish-submit">Publier</button>
