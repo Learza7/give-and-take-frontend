@@ -52,10 +52,10 @@ const AccountPage: React.FC = () => {
             <span>Points:</span> 
             <input type="text" value={userInfo?.points} readOnly/>
           </label>
-          <label className="account-label">
+          {/* <label className="account-label">
             <span>Nombre d'articles proposés :</span> 
             <input type="text" value={userInfo?.articles?.length} readOnly/>
-          </label>
+          </label> */}
         </div>
       </div>
     </div>
