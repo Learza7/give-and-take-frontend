@@ -30,6 +30,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
+        <h2 className="create-account-form__title">Se connecter</h2>
         <label className="login-label">
           Email:
           <input type="email" value={email} onChange={handleEmailChange} required />
