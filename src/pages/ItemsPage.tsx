@@ -13,7 +13,7 @@ interface Article {
     description: string;
     imageUrl: string;
     points: number;
-    region: string;
+
 }
 
 const ItemsPage: React.FC = () => {
@@ -85,11 +85,11 @@ const ItemsPage: React.FC = () => {
             />
 
             <div className="items-page__grid">
-                {filteredItems.map(item => (
+                {/* {filteredItems.map(item => (
                     <Link key={item.id} to={`/item/${item.id}`}>
                         <ItemCard item={item} />
                     </Link>
-                ))}
+                ))} */}
                 {filteredItemsUsers && filteredItemsUsers.map(item => (
                     <Link key={item.id} to={`/item/${item.id}`}>
                         <ItemCard item={item} />
