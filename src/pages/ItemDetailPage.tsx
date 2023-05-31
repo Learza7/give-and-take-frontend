@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ItemDetailPage.css';
 import mockItems from './mockItems';
+import axios from 'axios';
 
 interface Item {
   id: number;
@@ -12,13 +13,17 @@ interface Item {
 }
 
 const ItemDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id?: string }>();
   const [item, setItem] = useState<Item | null>(null);
 
   useEffect(() => {
-    const itemId = parseInt(id);
-    const item = mockItems.find(item=> item.id === itemId);
-    setItem(item);
+    const itemId = parseInt(id!);
+    axios.get(`http://localhost:8080/hello/api/articles/${itemId}`).then
+    (response => {
+      setItem(response.data);
+      console.log(response.data);
+    }
+    );
   }, [id]);
 
   if (!item) {
