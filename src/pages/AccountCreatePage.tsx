@@ -12,7 +12,6 @@ interface User {
 const AccountCreatePage: React.FC = () => {
   const { signup } = useContext(AuthContext);
   const { login } = useContext(AuthContext);
-  const { user: user2 } = useContext(AuthContext);
   
 
   const [user, setUser] = useState<User>({
@@ -28,10 +27,9 @@ const AccountCreatePage: React.FC = () => {
     try {
       await signup(user);
       // Handle successful signup, e.g. by navigating to a different page, showing a success message, etc.
-      await login(user.email, user.password)
       console.log('login successful');
       setTimeout(() => {
-        console.log(user2)
+        
         //window.location.href = '/account';
         }, 1000);
       //console.log(user2)
