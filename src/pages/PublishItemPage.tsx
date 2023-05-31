@@ -41,13 +41,14 @@ const PublishItemPage: React.FC = () => {
 
   const publish = async (article: { title: string; description: string; region: string; imageUrl: string; points: number; }) => {
     try {
+      console.log(article);
       const response = await axios.post('http://localhost:8080/hello/api/articles', {
         title: article.title,
         description: article.description,
-        region: article.region,
-        //imageUrl: article.imageUrl,
+
+        imageUrl: article.imageUrl,
         points: article.points,
-        user: user_id,
+        
       });
       console.log(response.data);
 
