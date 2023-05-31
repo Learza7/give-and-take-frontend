@@ -4,6 +4,15 @@ import './ItemsPage.css';
 import ItemCard from '../components/ItemCard';
 import { Link } from 'react-router-dom';
 import mockItems from './mockItems';
+import { useEffect } from 'react';
+import axios from 'axios';
+
+interface Article {
+    id: number;
+    title: string;
+    description: string;
+    region: string;
+}
 
 const ItemsPage: React.FC = () => {
     //TODO : récupérer les items depuis l'API
@@ -16,10 +25,38 @@ const ItemsPage: React.FC = () => {
         setSearchValue(event.target.value);
     };
 
-    const filteredItems = mockItems.filter(item =>
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            
+            const response = await axios.get('http://localhost:8080/hello/api/articles', {
+              // Request payload
+            });
+    
+            // Handle the response as needed
+            console.log(response.data);
+            console.log("ok");
+
+            response.data.forEach((article: Article) => {
+                console.log(article.id, article.title, article.description);
+            });
+
+
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchData(); 
+      }, []);
+
+      const filteredItems = mockItems.filter(item =>
         item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
         item.description.toLowerCase().includes(searchValue.toLowerCase())
     );
+
+    
 
     return (
         <div className="items-page">
