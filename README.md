@@ -1,37 +1,26 @@
 # Give&Take
 
-Give&Take est une plateforme en ligne pour les utilisateurs qui souhaitent échanger des articles qu'ils n'utilisent plus avec d'autres personnes qui en ont besoin. Les utilisateurs peuvent créer un compte avec leur adresse e-mail et un mot de passe, puis publier des articles qu'ils souhaitent échanger. Les articles peuvent être recherchés par titre, description ou mot-clé.
+Give&Take is an online platform for users who want to exchange items they no longer use with others who need them. Users can create an account with their email address and a password, and then post items they wish to exchange. The items can be searched by title, description, or keyword.
 
 ## Fonctionnalités
 
-- Création et connexion de compte utilisateur
-- Publication d'articles à échanger
-- Recherche d'articles disponibles par titre, description, région ou mot-clé
-- Système de points pour maintenir l'équilibre entre les articles donnés et les articles récupérés
-- Chat intégré pour organiser les détails de l'échange
+- User account creation and login
+- Posting of items for exchange
+- Searching available items by title, description, region, or keyword
+- Point system to maintain balance between items given and items taken
+- Integrated chat to organize exchange details
 
 
 ## Technologies utilisées
 
-- React Typescript pour le frontend
-- React Router pour la navigation
-- REST API pour l'intégration
-- CSS pour la mise en page
-- JEE pour le backend
+- React Typescript for the frontend
+- React Router for navigation
+- REST API for integration
+- CSS for layout
+- JEE for the backend
 
 ## Installation
 
-1. Clonez le dépôt sur votre ordinateur
-2. Dans le répertoire racine du projet, exécutez `npm install` pour installer les dépendances.
-3. Exécutez `npm run dev` pour lancer l'application. Cela ouvrira l'application dans votre navigateur par défaut.
-
-## Suivi
-
-- Séance 1:
-  - Définition du thème du site.
-  - Spécification des features.
-- Séance 2: 
-  - Début du frontend : prototypage et maquette (~700 LOC)
-  - Spécification des entities.
- 
-
+1. Clone the repository to your computer
+2. In the project's root directory, run npm install to install the dependencies.
+3. Run npm run dev to start the application. This will open the application in your default browser.
